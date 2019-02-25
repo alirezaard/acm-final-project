@@ -1,9 +1,6 @@
 package org.acmClassRoom.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -16,6 +13,8 @@ public class Work {
     private Date timeToWork;
     @Column(name = "Size_Of_Work")
     private Long sizeOfWork;
+    @ManyToOne
+    private Workers workers;
 
     public Long getId() {
         return id;
@@ -39,5 +38,13 @@ public class Work {
 
     public void setSizeOfWork(Long sizeOfWork) {
         this.sizeOfWork = sizeOfWork;
+    }
+
+    public Workers getWorkers() {
+        return workers;
+    }
+
+    public void setWorkers(Workers workers) {
+        this.workers = workers;
     }
 }
