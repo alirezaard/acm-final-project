@@ -1,4 +1,4 @@
-package org.acmClassRoom.logger;
+package org.acm_class_room.logger;
 
 import java.io.IOException;
 import java.util.logging.*;
@@ -10,7 +10,7 @@ public class MyLogger {
     static private FileHandler fileHTML;
     static private Formatter formatterHTML;
 
-    static public void registerLogger() throws IOException {
+    static public void logregister() throws IOException {
 
         Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
@@ -28,7 +28,6 @@ public class MyLogger {
         fileTxt.setFormatter(formatterTxt);
         logger.addHandler(fileTxt);
 
-        // create an HTML formatter
         formatterHTML = new MyHtmlFormatter();
         fileHTML.setFormatter(formatterHTML);
         logger.addHandler(fileHTML);

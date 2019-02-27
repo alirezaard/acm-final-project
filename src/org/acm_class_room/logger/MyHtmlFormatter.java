@@ -1,4 +1,4 @@
-package org.acmClassRoom.logger;
+package org.acm_class_room.logger;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -7,14 +7,11 @@ import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
 
-// this custom formatter formats parts of a log record to a single line
 class MyHtmlFormatter extends Formatter {
-    // this method is called for every log records
     public String format(LogRecord rec) {
         StringBuffer buf = new StringBuffer(1000);
         buf.append("<tr>\n");
 
-        // colorize any levels >= WARNING in red
         if (rec.getLevel().intValue() >= Level.WARNING.intValue()) {
             buf.append("\t<td style=\"color:red\">");
             buf.append("<b>");
@@ -43,8 +40,6 @@ class MyHtmlFormatter extends Formatter {
         return date_format.format(resultdate);
     }
 
-    // this method is called just after the handler using this
-    // formatter is created
     public String getHead(Handler h) {
         return "<!DOCTYPE html>\n<head>\n<style>\n"
                 + "table { width: 100% }\n"
@@ -63,8 +58,6 @@ class MyHtmlFormatter extends Formatter {
                 + "</tr>\n";
     }
 
-    // this method is called just after the handler using this
-    // formatter is closed
     public String getTail(Handler h) {
         return "</table>\n</body>\n</html>";
     }

@@ -1,6 +1,6 @@
-package org.acmClassRoom.dao;
+package org.acm_class_room.dao;
 
-import org.acmClassRoom.model.Work;
+import org.acm_class_room.model.Work;
 
 import java.util.List;
 

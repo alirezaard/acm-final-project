@@ -1,7 +1,7 @@
-package org.acmClassRoom.dao.impl;
+package org.acm_class_room.dao.impl;
 
-import org.acmClassRoom.dao.WorkerDao;
-import org.acmClassRoom.model.Workers;
+import org.acm_class_room.dao.WorkerDao;
+import org.acm_class_room.model.Workers;
 
 import java.util.List;
 

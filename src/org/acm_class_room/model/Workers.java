@@ -1,4 +1,4 @@
-package org.acmClassRoom.model;
+package org.acm_class_room.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

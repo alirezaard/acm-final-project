@@ -1,4 +1,4 @@
-package org.acmClassRoom.model;
+package org.acm_class_room.model;
 
 import javax.persistence.*;
 import java.util.Date;
