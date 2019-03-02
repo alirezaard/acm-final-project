@@ -10,7 +10,7 @@ public class MyLogger {
     static private FileHandler fileHTML;
     static private Formatter formatterHTML;
 
-    static public void logregister() throws IOException {
+    static public Logger loggerRegister() {
 
         Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
@@ -20,9 +20,13 @@ public class MyLogger {
             rootLogger.removeHandler(handlers[0]);
         }
 
-        logger.setLevel(Level.INFO);
-        fileTxt = new FileHandler("log.txt");
-        fileHTML = new FileHandler("log.html");
+        logger.setLevel(Level.FINE);
+        try {
+            fileTxt = new FileHandler("log.txt");
+            fileHTML = new FileHandler("log.html");
+        } catch (IOException exp) {
+            System.out.println(exp);
+        }
 
         formatterTxt = new SimpleFormatter();
         fileTxt.setFormatter(formatterTxt);
@@ -31,5 +35,6 @@ public class MyLogger {
         formatterHTML = new MyHtmlFormatter();
         fileHTML.setFormatter(formatterHTML);
         logger.addHandler(fileHTML);
+        return logger;
     }
 }

@@ -1,10 +1,14 @@
 package org.acm_class_room.dao.util;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 public class BasicConnectionPool implements ConnectionPool {
 
@@ -45,6 +49,11 @@ public class BasicConnectionPool implements ConnectionPool {
     private static Connection createConnection(
             String url, String user, String password)
             throws SQLException {
+        Properties props = new Properties();
+        props.put("config", "resources/config.properties");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("myJPA", props);
+        final EntityManager em = emf.createEntityManager();
+        //em.createQuery()
         return DriverManager.getConnection(url, user, password);
     }
 

@@ -12,14 +12,31 @@ class MyHtmlFormatter extends Formatter {
         StringBuffer buf = new StringBuffer(1000);
         buf.append("<tr>\n");
 
-        if (rec.getLevel().intValue() >= Level.WARNING.intValue()) {
-            buf.append("\t<td style=\"color:red\">");
+        if (rec.getLevel().intValue() == Level.WARNING.intValue()) {
+            buf.append("\t<td class=\"btn danger\">");
+            buf.append("<b>");
+            buf.append(rec.getLevel());
+            buf.append("</b>");
+        } else if (rec.getLevel().intValue() == Level.INFO.intValue()) {
+            buf.append("\t<td class=\"btn info\">");
+            buf.append("<b>");
+            buf.append(rec.getLevel());
+            buf.append("</b>");
+        } else if (rec.getLevel().intValue() == Level.SEVERE.intValue()) {
+            buf.append("\t<td class=\"btn warning\">");
+            buf.append("<b>");
+            buf.append(rec.getLevel());
+            buf.append("</b>");
+        } else if (rec.getLevel().intValue() == Level.FINE.intValue()) {
+            buf.append("\t<td class=\"btn success\">");
             buf.append("<b>");
             buf.append(rec.getLevel());
             buf.append("</b>");
         } else {
-            buf.append("\t<td>");
+            buf.append("\t<td class=\"btn default\">");
+            buf.append("<b>");
             buf.append(rec.getLevel());
+            buf.append("</b>");
         }
 
         buf.append("</td>\n");
@@ -46,6 +63,21 @@ class MyHtmlFormatter extends Formatter {
                 + "th { font:bold 10pt Tahoma; }\n"
                 + "td { font:normal 10pt Tahoma; }\n"
                 + "h1 {font:normal 11pt Tahoma;}\n"
+                + ".btn {"
+                + "border: none;"
+                + "color: white;"
+                + "padding: 14px 28px;"
+                + "cursor: pointer;}"
+                + ".success {background-color: #4CAF50;}"
+                + ".success:hover {background-color: #46a049;}"
+                + ".info {background-color: #2196F3;}"
+                + ".info:hover {background: #0b7dda;}"
+                + ".warning {background-color: #ff9800;}"
+                + ".warning:hover {background: #e68a00;}"
+                + ".danger {background-color: #f44336;}"
+                + ".danger:hover {background: #da190b;}"
+                + ".default {background-color: #e7e7e7; color: black;}"
+                + ".default:hover {background: #ddd;}"
                 + "</style>\n"
                 + "</head>\n"
                 + "<body>\n"

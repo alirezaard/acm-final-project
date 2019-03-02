@@ -7,6 +7,7 @@ import java.util.Date;
 @Table(name = "work")
 public class Work {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "Id", nullable = false)
     private Long id;
     @Column(name = "Time_To_Get_Job")

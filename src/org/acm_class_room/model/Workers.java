@@ -1,14 +1,12 @@
 package org.acm_class_room.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Worker")
 public class Workers {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "Id", nullable = false)
     private Long id;
     @Column(name = "IP_Address")
